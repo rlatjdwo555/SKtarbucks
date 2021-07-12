@@ -1,0 +1,14 @@
+local\CafeController.class
+local\AbstractEvent$1.class
+local\CafeManageApplication.class
+local\config\kafka\KafkaProcessor.class
+local\CafeChanged.class
+local\CafeRepository.class
+local\CafeDeleted.class
+local\Cafe.class
+local\AbstractEvent.class
+local\PolicyHandler.class
+local\Canceled.class
+local\OrderRequested.class
+local\CafeRegistered.class
+local\OrderCanceld.class

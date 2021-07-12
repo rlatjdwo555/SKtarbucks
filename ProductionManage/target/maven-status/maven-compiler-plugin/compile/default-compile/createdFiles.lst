@@ -1,0 +1,14 @@
+local\ProductionChanged.class
+local\Requested.class
+local\AbstractEvent$1.class
+local\config\kafka\KafkaProcessor.class
+local\ProductionController.class
+local\CafeDeleted.class
+local\AbstractEvent.class
+local\PolicyHandler.class
+local\ProductionCompleted.class
+local\ForceCanceled.class
+local\Canceled.class
+local\ProductionRepository.class
+local\Production.class
+local\ProductionManageApplication.class
