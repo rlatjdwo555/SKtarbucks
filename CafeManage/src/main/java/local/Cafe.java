@@ -40,20 +40,6 @@ public class Cafe {
         CafeChanged cafeChanged = new CafeChanged();
         BeanUtils.copyProperties(this, cafeChanged);
         cafeChanged.publishAfterCommit();
-
-        /*
-        검진 예약 요청 발행 제거
-        ScreeningRequested screeningRequested = new ScreeningRequested();
-        BeanUtils.copyProperties(this, screeningRequested);
-        screeningRequested.publishAfterCommit();
-
-        검진 취소됨 발행 제거
-        ScreeningCanceld screeningCanceld = new ScreeningCanceld();
-        BeanUtils.copyProperties(this, screeningCanceld);
-        screeningCanceld.publishAfterCommit();
-        
-
-         */
     }
 
 

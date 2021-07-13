@@ -26,7 +26,7 @@ public class PolicyHandler{
     public void wheneverCanceled_OrderCanceled(@Payload Canceled canceled){
 
         if(canceled.isMe()){
-            System.out.println("##### 검진 취소 요청으로 인한 인원 변화 : " + canceled.toJson());
+            System.out.println("##### 주문 취소 요청으로 인한 수량 변화 : " + canceled.toJson());
             Optional<Cafe> temp = cafeRepository.findById(canceled.getCafeId());
 
             if(temp.isPresent()){

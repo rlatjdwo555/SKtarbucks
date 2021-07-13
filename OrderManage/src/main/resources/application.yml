@@ -86,6 +86,6 @@ spring:
           destination: local
           contentType: application/json
 
-#api:
-# cafe:
-#  url: http://CafeManage:8080
+api:
+ cafe:
+    url: http://CafeManage:8080

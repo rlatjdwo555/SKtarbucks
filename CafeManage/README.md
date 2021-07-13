@@ -1,3 +1,0 @@
-# HospitalManage
-
-test2
