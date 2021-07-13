@@ -637,7 +637,7 @@ $kubectl delete hpa cafemanage -n skcc04-ns
 먼저 무정지 재배포가 100% 되는 것인지 확인하기 위해서 Autoscaler, CB 설정을 제거함
 Readiness Probe 미설정 시 무정지 재배포 가능여부 확인을 위해 buildspec.yml의 Readiness Probe 설정을 제거함
 
-- seige 로 배포작업 직전에 워크로드를 모니터링 함.
+- seige 및 kiali 화면으로 배포작업 워크로드를 모니터링 함.
 ![image](https://i.imgur.com/cPzZq15.png)
 ```
 $ siege -v -c1 -t240S --content-type "application/json" 'http://a0a49bc9c3b964b96bf740b592da2520-1468765953.ap-northeast-1.elb.amazonaws.com:8080/cafes POST {"cafeId":"99","cafeNm":"coffee","chkDate":"210713","pcnt":20}'
