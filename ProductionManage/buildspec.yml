@@ -2,10 +2,10 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "production"
-    _ECR_NAME: "user04"
-    _NAMESPACE: "skcc04-ns"
-    _AWS_REGION: "ap-northeast-1" 
+    _PROJECT_NAME: "productionmanage"
+    _ECR_NAME: "user04" 
+    _NAMESPACE: "skcc04-ns" 
+    _AWS_REGION: "ap-northeast-1"
 
 phases:
   install:
@@ -94,8 +94,9 @@ phases:
                     initialDelaySeconds: 120
                     timeoutSeconds: 2
                     periodSeconds: 5
-                    failureThreshold: 5         
+                    failureThreshold: 5  
         EOF
 cache:
   paths:
     - '/root/.m2/**/*'
+

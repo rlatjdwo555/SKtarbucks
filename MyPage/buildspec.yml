@@ -5,7 +5,7 @@ env:
     _PROJECT_NAME: "mypage"
     _ECR_NAME: "user04"
     _NAMESPACE: "skcc04-ns"
-    _AWS_REGION: "ap-northeast-1" 
+    _AWS_REGION: "ap-northeast-1"
 
 phases:
   install:
@@ -75,7 +75,7 @@ phases:
             spec:
               containers:
                 - name: $_PROJECT_NAME
-                  image: $AWS_ACCOUNT_ID.dkr.ecr.$_AWS_REGION.amazonaws.com/$_ECR_NAME-$_PROJECT_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION
+                  image: $AWS_ACCOUNT_ID.dkr.ecr.$_AWS_REGION.amazonaws.com/$_ECR_NAME-$_PROJECT_NAME:latest
                   ports:
                     - containerPort: 8080
                   imagePullPolicy: Always
@@ -94,7 +94,7 @@ phases:
                     initialDelaySeconds: 120
                     timeoutSeconds: 2
                     periodSeconds: 5
-                    failureThreshold: 5         
+                    failureThreshold: 5        
         EOF
 cache:
   paths:

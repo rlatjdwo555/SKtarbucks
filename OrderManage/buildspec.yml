@@ -2,9 +2,9 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "order"
+    _PROJECT_NAME: "ordermanage"
     _ECR_NAME: "user04"
-    _NAMESPACE: "skcc04-ns"
+    _NAMESPACE: "skcc04-ns" 
     _AWS_REGION: "ap-northeast-1" 
 
 phases:
@@ -55,6 +55,16 @@ phases:
             app: $_PROJECT_NAME
         EOF
       - |
+        cat <<EOF | kubectl apply -f -
+        apiVersion: v1
+        kind: ConfigMap
+        metadata:
+          name: my-config
+          namespace: $_NAMESPACE
+        data:
+          api.cafe.url: http://CafeManage:8080
+        EOF
+      - |
         cat  <<EOF | kubectl apply -f -
         apiVersion: apps/v1
         kind: Deployment
@@ -78,12 +88,6 @@ phases:
                   image: $AWS_ACCOUNT_ID.dkr.ecr.$_AWS_REGION.amazonaws.com/$_ECR_NAME-$_PROJECT_NAME:latest
                   ports:
                     - containerPort: 8080
-                  env:
-                    - name: api.cafe.url
-                      valueFrom:
-                        configMapKeyRef:
-                          name: my-config
-                          key: api.cafe.url
                   imagePullPolicy: Always
                   readinessProbe:
                     httpGet:
@@ -97,10 +101,16 @@ phases:
                     httpGet:
                       path: '/actuator/health'
                       port: 8080
-                    initialDelaySeconds: 150
+                    initialDelaySeconds: 120
                     timeoutSeconds: 2
                     periodSeconds: 5
-                    failureThreshold: 5         
+                    failureThreshold: 5  
+                  env:
+                    - name: api.cafe.url
+                      valueFrom:
+                        configMapKeyRef:
+                          name: my-config
+                          key: api.cafe.url      
         EOF
 cache:
   paths:
